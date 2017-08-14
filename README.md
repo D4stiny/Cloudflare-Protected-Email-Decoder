@@ -1,5 +1,7 @@
 # Cloudflare Protected Email Decoder
 ## Usage
 ```
-https://d4stiny.github.io/cloudflare-email-protection-decoder/index.html
+[https://d4stiny.github.io/Cloudflare-Protected-Email-Decoder]
 ```
+
+[https://d4stiny.github.io/Cloudflare-Protected-Email-Decoder]: https://d4stiny.github.io/Cloudflare-Protected-Email-Decoder
