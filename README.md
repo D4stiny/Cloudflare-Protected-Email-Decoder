@@ -1,5 +1,5 @@
 # Cloudflare Protected Email Decoder
 ## Usage
 ```
-Adding url in a sec :)
+https://d4stiny.github.io/cloudflare-email-protection-decoder/index.html
 ```
