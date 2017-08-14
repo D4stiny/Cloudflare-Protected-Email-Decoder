@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Cloudflare Email Decoder</h1>
+<p>Enter the href string (ex: /cdn-cgi/l/email-protection#xxx)</p>
+<input type="text" id="encoded_input" value="">
+<button onclick="decode()">Decode</button>
+<br><br>
+<b>Output: </b><input type="text" id="output" value="" readonly>
+<script>
+function decode() {
+	var a = document.getElementById("encoded_input").value;
+	var s = a.indexOf('/cdn-cgi/l/email-protection');
+	var t = document.createElement('textarea');
+	var m = a.length;
+	
+	if (a && s > -1 && m > 28) {
+		var j = 28 + s;
+		var s = '';
+		if (j < m) {
+			r = '0x' + a.substr(j, 2) | 0;
+			for (j += 2; j < m && a.charAt(j) != 'X'; j += 2) s += '%' + ('0' + ('0x' + a.substr(j, 2) ^ r).toString(16)).slice(-2);
+			j++;
+			s = decodeURIComponent(s) + a.substr(j, m - j)
+		}
+		t.innerHTML = s.replace(/</g, '&lt;').replace(/\>/g, '&gt;');
+		document.getElementById("output").value = t.value;
+	} else
+    	document.getElementById("output").value = "Invalid input!";
+}
+</script>
+<h5>Decoding algorithm by © Cloudflare, Inc.</h5>
+</body>
+</html>
